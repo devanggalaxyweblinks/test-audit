@@ -1,0 +1,33 @@
+LOGGER_FILE: log-config.yaml
+RMQ_FILE: rmq_config.yaml
+
+I18N:
+  FILE_NAME: resources/messages
+
+SERVER:
+  HOST: localhost
+  PORT: 3006
+
+DB:
+  TYPE: postgres
+  HOST: localhost
+  PORT: 5432
+  NAME: postgres
+  USERNAME: SET_ME
+  PASSWORD: SET_ME
+  SYNCHRONIZE: true
+  LOGGING: true
+
+
+# JWT Token Configuration
+JWT_ALGORITHM: "HS256"
+ACCESS_TOKEN_EXPIRE_TIME: "1d"
+
+#CORS Configuration
+ORIGINS: '*'
+METHODS: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
+HEADERS: 'Content-Type,authorization,apisecretkey'
+CREDENTIALS: "password"  # credentials is optional
+
+#Hashing Algorithm
+HASHING_ALGO: "md5"

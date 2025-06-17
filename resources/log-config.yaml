@@ -1,0 +1,38 @@
+logger:
+  handler:
+    console:
+        level: 'debug'
+        format: 'YYYY-MM-DD HH:mm:ss'
+        colorize:
+          all: true
+          colors: 
+            info: 'yellow'
+            debug: 'green'
+            error: 'bold red'
+            warn: 'bold inverse red'
+            verbose: 'cyan'
+            
+    
+    file:
+      -
+        level: 'debug'
+        dirname: 'logs'
+        filename: 'audit-service'
+        extension: '.log'
+        #datePattern: 'YYYY-MM-DD-HH'
+        zippedArchive: true
+        maxSize: '20m'
+        #maxFiles: '14d'
+      -
+        level: 'error'
+        dirname: 'logs'
+        filename: 'error'
+        extension: '.log'
+        #datePattern: 'YYYY-MM-DD-HH'
+        zippedArchive: true
+        maxSize: '20m'
+        #maxFiles: '14d'
+
+    formatter: 'info.label +" - "+ info.timestamp +" [" + info.level + "] ["+ ((info.context) ? info.context : "None") + "] ["+((info.stack) ? info.stack : "None")+"] "+ info.message '
+
+  

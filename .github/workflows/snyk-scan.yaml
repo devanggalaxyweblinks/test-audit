@@ -1,0 +1,14 @@
+name: Snyk Security Scan
+ 
+on:
+  schedule:
+    - cron: '30 8 * * 5'  # Every Friday at 8:30 AM UTC (2 PM IST)
+  workflow_dispatch: # Allows manual triggering
+ 
+jobs:
+  security-scan:
+    uses: dandsltd/o2c-devops/.github/workflows/snyk-analysis.yaml@develop
+    with:
+      project_name: "o2c-audit"
+    secrets:
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

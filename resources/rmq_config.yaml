@@ -1,0 +1,20 @@
+---
+  connection:
+    host: localhost
+    port: 5672
+    protocol: amqp
+    timeout: 10000
+  exchange:
+  - name: audit
+    type: direct
+    durable: true
+    auto_delete: false
+    queues:
+    - name: add_audit_log
+      durable: true
+      routing_key: SET_ME
+      expires: 600000
+      auto_delete: false
+      dead_letter_queue: true
+      
+    

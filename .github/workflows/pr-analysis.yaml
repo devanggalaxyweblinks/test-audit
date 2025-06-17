@@ -1,0 +1,16 @@
+name: PR Analysis
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+jobs:
+  sonar-analysis:
+    uses: dandsltd/o2c-devops/.github/workflows/sonar-analysis.yaml@develop
+    with:
+      projectKey: o2c-audit-service
+      prAnalysisFeatureBranch: true
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}

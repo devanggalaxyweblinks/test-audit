@@ -1,0 +1,10 @@
+#!/bin/bash
+COMMIT_MSG=$(cat "$1")
+
+PATTERN="^(Feature|Bug|Hotfix) : O2C-[0-9]{4,5} : .+"
+
+if ! [[ "$COMMIT_MSG" =~ $PATTERN ]]; then
+    echo "❌ ERROR: Commit message does not follow the required pattern!"
+    echo "   Example: Feature : O2C-1234 : Added new feature"
+    exit 1
+fi
